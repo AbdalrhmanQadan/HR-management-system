@@ -4,6 +4,7 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #395B64;
+    height: auto;
   }
   
   li {
@@ -20,4 +21,9 @@ ul {
   
   li a:hover {
     background-color: #2666CF;
+  }
+ 
+  .grid-item img{
+    width: 150px;
+    height: auto;
   }

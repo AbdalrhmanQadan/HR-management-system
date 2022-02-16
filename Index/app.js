@@ -15,18 +15,37 @@ function employeeFunction(FullName, Department, Level, Img) {
 
 employeeFunction.prototype.getId = function () {
     this.id = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
-
+    if (this.getId === this.id) {
+        getId()
+    }
 }
 
 employeeFunction.prototype.render = function () {
-    let Namediv = document.createElement("h5");
-    //let image = document.createElement("img");
-    //image.setAttribute("src", this.Img);
+    let showDiv = document.createElement("div");
+    showDiv.setAttribute('class', "grid-item");
 
-    Namediv.textContent = `${document.createElement("img").setAttribute("src", this.Img)}  name is : ${this.FullName} ID : ${this.id} 
-    Department ${this.Department} Level : ${this.Level}`;
 
-    navDiv.appendChild(Namediv);
+    let showImg = document.createElement("img");
+    showImg.setAttribute("src", this.Img);
+    showDiv.appendChild(showImg);
+
+    let Namediv = document.createElement("h6");
+    Namediv.textContent = ` name is : ${this.FullName} `;
+
+    let idDiv = document.createElement("h6");
+    idDiv.textContent = `id : ${this.id}`;
+
+    let departmentdiv = document.createElement("h6");
+    departmentdiv.textContent = `department : ${this.Department}`;
+
+    let leveldiv = document.createElement("h6");
+    leveldiv.textContent = `Level : ${this.Level}`
+
+    showDiv.appendChild(Namediv);
+    showDiv.appendChild(idDiv);
+    showDiv.appendChild(departmentdiv);
+    showDiv.appendChild(leveldiv);
+    navDiv.appendChild(showDiv);
 }
 
 form.addEventListener("submit", handelSubmit);
