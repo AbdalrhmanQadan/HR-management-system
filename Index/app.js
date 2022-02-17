@@ -46,6 +46,23 @@ employeeFunction.prototype.render = function () {
     showDiv.appendChild(departmentdiv);
     showDiv.appendChild(leveldiv);
     navDiv.appendChild(showDiv);
+
+    saveEmplyee();
+
+}
+
+function saveEmplyee() {
+    let formatData = JSON.stringify(employee);
+    localStorage.setItem("employees", formatData);
+}
+
+function getEmployee() {
+    let emp = localStorage.getItem("employees");
+    let parseEmp = JSON.parse(emp);
+    for (let i = 0; i < parseEmp.length; i++) {
+        new employeeFunction(parseEmp[i].FullName, parseEmp[i].Department, parseEmp[i].Level, parseEmp[i].Img)
+    }
+    renderAll();
 }
 
 form.addEventListener("submit", handelSubmit);
@@ -59,8 +76,8 @@ function handelSubmit(event) {
     let newEmployee = new employeeFunction(FullName, Department, Level, Img);
     newEmployee.getId();
     renderAll();
+    saveEmplyee();
     form.reset();
-    console.log(employee)
 }
 function renderAll() {
     navDiv.innerHTML = "";
@@ -68,4 +85,5 @@ function renderAll() {
         employee[i].render();
     }
 }
-renderAll();
+
+getEmployee();

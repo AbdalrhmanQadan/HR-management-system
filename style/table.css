@@ -1,0 +1,23 @@
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #b7c8e4}
+  
+  th {
+    background-color: #2666CF;
+    color: white;
+  }
+  tr:hover {
+    background-color: #395B64;
+  }
+  tfoot {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
